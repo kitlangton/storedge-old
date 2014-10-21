@@ -6,15 +6,20 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    # @company = Company.new
-    # authorize! :create, @company
   end
 
   def create
-    @company = Company.new(company_params)
+    # @company = Company.new(company_params)
     if @company.save
       redirect_to companies_path
       flash[:success] = "Company created"
+    end
+  end
+
+  def destroy
+    if @company.destroy
+      redirect_to companies_path
+      flash[:success] = "Company destroyed"
     end
   end
 

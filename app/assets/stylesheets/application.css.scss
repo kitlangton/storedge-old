@@ -3,4 +3,6 @@ $body-bg: #EEE;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "layout";
+@import 'cards';
 @import 'companies';
+@import 'users';

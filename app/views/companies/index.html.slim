@@ -8,9 +8,10 @@ br
 .container
   .companies.row
     - @companies.each do |company|
-      .company-container.col-sm-4
-        .company
+      .card-container.col-sm-4
+        .card.fade-in
           h4= company.name
-          | This is a company
+          = link_to "Delete", company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button", remote: true
 
-  = paginate @companies
+.center-block.text-center.fade-in
+  = paginate @companies, :theme => 'twitter-bootstrap-3'

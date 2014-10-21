@@ -1,7 +1,12 @@
 = content_for :page_class do
   | home
 
-- @products.each do |product|
-  .body-text
-    .product
-      = product.name
+h1.text-center Home
+
+.container
+  .products.row
+    - @products.each do |product|
+      .card-container.col-sm-4
+        .card.fade-in
+          h4= product.name
+          /= link_to "Delete", user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button", remote: true
