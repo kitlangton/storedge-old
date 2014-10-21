@@ -3,15 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(".button-panel .button").hover (->
-    $(@).stop(true,false).velocity
-      borderBottomWidth: 1
-      translateY: 2
-    ,
-      duration: 100
-  ), ->
-    $(@).stop(true,false).velocity
-      borderBottomWidth: 3
-      translateY: 0
-    ,
-      duration: 100
+  $(".company").css "display", "none"
+  $(".company").velocity "transition.slideUpIn",
+    stagger: 100
