@@ -7,6 +7,5 @@ feature "User adds a product to their cart" do
     user = create(:user)
     visit root_path
 
-
   end
 end

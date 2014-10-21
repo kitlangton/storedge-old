@@ -5,6 +5,11 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  body
-    #container
-      = yield
+  body class=(yield :page_class)
+    = render 'layouts/header'
+    - if current_user
+      = render 'layouts/navbar'
+      - if current_user.admin?
+        = render 'admin/home'
+    = render 'layouts/messages'
+    = yield

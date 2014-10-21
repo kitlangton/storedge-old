@@ -6,11 +6,12 @@ FactoryGirl.define do
     password "123123123"
     password_confirmation "123123123"
     admin false
+
+    factory :admin do
+      first_name "Admin"
+      last_name  "User"
+      admin      true
+    end
   end
 
-  factory :admin, class: User do
-    first_name "Admin"
-    last_name  "User"
-    admin      true
-  end
 end

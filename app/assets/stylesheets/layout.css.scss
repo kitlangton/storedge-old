@@ -1,23 +1,28 @@
-$mobile: new-breakpoint(max-width 480px);
-$desktop: new-breakpoint(min-width 850px);
-
-.main-header {
-  @include centered-in-grid;
-  margin-bottom: 15px;
+//
+.header-text {
+  text-align: center
 }
 
-body {
-  // @include()
+.sign-in-page {
+  background: #EEE;
 }
 
-.body-text {
-  @include span-columns(6);
-  @include omega();
-  @include media($mobile) {
-    @include span-columns(12);
-  }
+.form-control{
+  margin-bottom: 10px;
 }
 
-#container {
-  @include outer-container;
+.form-signin-heading {
+  margin-bottom: 10px;
 }
+
+.sign-in-container {
+  margin-top: 5em;
+  background-color: white;
+  padding: 50px;
+  padding-top: 30px;
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.14);
+  -moz-box-shadow:    3px 3px 3px 0px rgba(50, 50, 50, 0.14);
+  box-shadow:         3px 3px 3px 0px rgba(50, 50, 50, 0.14);
+}
+
+

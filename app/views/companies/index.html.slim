@@ -1,0 +1,9 @@
+h1.text-center Companies
+
+.container
+  .companies.row
+    - @companies.each do |company|
+      .company-container.col-sm-4
+        .company
+          h4= company.name
+          | This is a company

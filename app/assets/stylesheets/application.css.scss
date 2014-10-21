@@ -1,5 +1,6 @@
-@import "bourbon/bourbon";
-@import "style-kit";
-@import "base/base";
-@import "neat/neat";
+$brand-primary: #f78e23;
+$body-bg: #EEE;
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "layout";
+@import 'companies';
