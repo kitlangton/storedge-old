@@ -1,0 +1,12 @@
+h1.main-header stor•edge
+
+h4.main-header
+  - if current_user
+    = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button"
+  - else
+    = link_to "Sign In", new_user_session_path, class: "button"
+
+- @products.each do |product|
+  .body-text
+    .product
+      = product.name

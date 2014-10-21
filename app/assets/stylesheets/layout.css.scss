@@ -1,0 +1,23 @@
+$mobile: new-breakpoint(max-width 480px);
+$desktop: new-breakpoint(min-width 850px);
+
+.main-header {
+  @include centered-in-grid;
+  margin-bottom: 15px;
+}
+
+body {
+  // @include()
+}
+
+.body-text {
+  @include span-columns(6);
+  @include omega();
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+}
+
+#container {
+  @include outer-container;
+}

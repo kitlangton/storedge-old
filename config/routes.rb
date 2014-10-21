@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'static_pages#about'
+  root 'home#show'
   get 'static_pages/about'
 
   # The priority is based upon order of creation: first created -> highest priority.

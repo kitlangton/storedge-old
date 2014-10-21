@@ -1,0 +1,22 @@
+h1.main-header stor•edge
+
+h4.main-header
+  - if current_user
+    = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button"
+  - else
+    = link_to "Sign In", new_user_session_path, class: "button"
+.body-text
+  p huh?
+
+.body-text
+  p
+    |
+      I feel absolutely terrible and I know this is fucked up.
+      but I left my whole god damn house
+      in this fucked up boat
+
+.body-text
+  p What's up?
+
+.body-text
+  p Find me in app/views/static_pages/about.html.slim

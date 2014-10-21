@@ -27,8 +27,12 @@ gem 'faker', '~> 1.4.3'
 gem 'kaminari', '~> 0.16.1'
 gem 'figaro', '~> 1.0.0'
 gem 'unicorn'
+gem 'cancancan', '~> 1.9'
+gem 'acts-as-taggable-on', '~> 3.4'
+
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'sqlite3'
   gem 'shoulda-matchers', '~> 2.7.0'
   gem 'database_cleaner', '~> 1.3.0'
