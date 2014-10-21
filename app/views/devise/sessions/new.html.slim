@@ -3,6 +3,7 @@
 .row
   .col-sm-6.col-sm-offset-3.sign-in-container
     h2.form-signin-heading Please sign in
+    br
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address"
       = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"

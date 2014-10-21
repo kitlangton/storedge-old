@@ -5,4 +5,5 @@
 $ ->
   $(".company").css "display", "none"
   $(".company").velocity "transition.slideUpIn",
+    drag: true
     stagger: 100

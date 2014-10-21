@@ -1,4 +1,9 @@
 h1.text-center Companies
+br
+.controls.text-center
+  = link_to new_company_path do
+    button.btn.btn-primary#new-company-button
+      span.glyphicon-plus.glyphicon
 
 .container
   .companies.row
@@ -7,3 +12,5 @@ h1.text-center Companies
         .company
           h4= company.name
           | This is a company
+
+  = paginate @companies
