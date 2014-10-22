@@ -35,10 +35,15 @@
   width: auto;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+}
+.sign-in-container {
+  backface-visibility: none;
+  transition: height .2s;
+}
+
 .rails-bootstrap-forms-error-summary {
   margin-top: 10px;
 }
 
-.fade-in {
-  display: none;
-}

@@ -8,7 +8,7 @@
       = content_tag :div, value, class: "flash alert-danger alert"
     = devise_error_messages!
     = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = f.email_field :email
+      = f.email_field :email, autofocus: true
       = f.password_field :password
       - if devise_mapping.rememberable?
         label.checkbox
