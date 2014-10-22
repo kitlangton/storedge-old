@@ -17,5 +17,6 @@
 //= require velocity.ui.min
 //= require jquery
 //= require bootstrap-sprockets
+//= require chosen-jquery
 //= require turbolinks
 //= require_tree .

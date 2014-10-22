@@ -16,14 +16,14 @@ feature "Users only sees their company's products" do
       product.update(company: company)
 
       visit root_path
-      expect(page).to have_css(".product", text:product.name)
+      expect(page).to have_content product.name
     end
 
     it "doesn't see other companies products" do
       user.update(company: company)
 
       visit root_path
-      expect(page).not_to have_css(".product", text:product.name)
+      expect(page).not_to have_content product.name
     end
   end
 end

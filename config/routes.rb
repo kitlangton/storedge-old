@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :users, only: [:index, :destroy]
+  devise_for :users, controllers: { invitations: "invitations" }
+  namespace :admin do
+    resources :users
+  end
   resources :companies
   root 'home#show'
   get 'static_pages/about'

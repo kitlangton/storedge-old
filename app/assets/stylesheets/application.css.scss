@@ -2,6 +2,7 @@ $brand-primary: #f78e23;
 $body-bg: #EEE;
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'chosen_bootstrap';
 @import "layout";
 @import 'cards';
 @import 'companies';

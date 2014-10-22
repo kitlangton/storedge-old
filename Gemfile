@@ -31,6 +31,7 @@ gem 'figaro', '~> 1.0.0'
 gem 'unicorn'
 gem 'cancancan', '~> 1.9'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'chosen-sass-bootstrap-rails'
 
 
 group :development, :test do

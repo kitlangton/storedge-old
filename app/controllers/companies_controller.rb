@@ -20,7 +20,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     if @company.destroy
-      redirect_to companies_path
+      render nothing: true
       flash[:success] = "Company destroyed"
     end
   end

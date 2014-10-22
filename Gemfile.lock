@@ -72,6 +72,16 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
+    chosen-rails (1.2.0)
+      coffee-rails (>= 3.2)
+      compass-rails (>= 1.1.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
+    chosen-sass-bootstrap-rails (0.0.3)
+      bootstrap-sass (~> 3.1)
+      chosen-rails
+      compass-rails (~> 2.0)
+      sass-rails (~> 4.0)
     chunky_png (1.3.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -273,6 +283,7 @@ DEPENDENCIES
   bootstrap_form
   cancancan (~> 1.9)
   capybara (~> 2.4.4)
+  chosen-sass-bootstrap-rails
   coffee-rails (~> 4.0.0)
   compass-rails
   database_cleaner (~> 1.3.0)
