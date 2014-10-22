@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-sm-6.col-sm-offset-3.sign-in-container
+      h2.form-signin-heading Create a new product
+      br
+      = bootstrap_form_for @product, url: admin_products_path do |f|
+        = f.text_field :name, autofocus: true
+        = f.number_field :price
+        .above
+          = f.collection_select :company_id, Company.all, :id, :name,
+                 { include_blank: true },
+                 { class: 'chosen-select' }
+        div= f.submit "Create product", class: "btn btn-lg btn-primary btn-block"

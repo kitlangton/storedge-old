@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
+  validates :company, presence: true
   belongs_to :company
-  acts_as_taggable
 end

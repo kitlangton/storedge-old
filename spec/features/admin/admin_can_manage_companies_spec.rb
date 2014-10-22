@@ -12,8 +12,6 @@ feature "Admin manages companies" do
   end
 
   scenario "creating companies", js: true do
-    click_link "Admin"
-    click_link "Companies"
     click_button "new-company-button"
 
     fill_in "Name", with: "CocaCola"

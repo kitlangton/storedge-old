@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: "invitations" }
   namespace :admin do
     resources :users
+    resources :products
   end
   resources :companies
   root 'home#show'

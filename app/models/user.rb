@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :first_name, :last_name, presence: true
-  validates_presence_of :company, unless: Proc.new { |u| u.admin? }
+  validates :company_id, presence: true, unless: Proc.new { |u| u.admin? }
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable, validate_on_invite: true
 

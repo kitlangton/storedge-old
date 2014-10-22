@@ -25,6 +25,14 @@
   box-shadow:         3px 3px 3px 0px rgba(50, 50, 50, 0.14);
 }
 
+.above {
+  position: relative;
+  z-index: 1000000;
+}
+.chosen-single {
+  width: 200px;
+}
+
 
 // bootstrap forms
 

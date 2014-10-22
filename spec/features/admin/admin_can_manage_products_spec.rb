@@ -23,6 +23,7 @@ feature "Admin can manage all products" do
 
     fill_in "Name", with: "Wonderous Product"
     fill_in "Price", with: "55.55"
+    find("#product_price").native.send_keys "\t#{company.name}\n"
     click_button "Create product"
 
     expect(page).to have_content "Wonderous Product"
@@ -38,11 +39,12 @@ feature "Admin can manage all products" do
 
   scenario "editing products", js: true do
     click_link "Edit"
-    fill_in "First name", with: "Chubby"
-    fill_in "Last name", with: "Dobby"
+    fill_in "Name", with: "Chubby Dobby"
+    fill_in "Price", with: "55.60"
     click_button "Update product"
 
     expect(page).to have_content "Chubby Dobby"
+    expect(page).to have_content "$55.60"
   end
 
 end
