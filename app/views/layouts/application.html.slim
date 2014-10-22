@@ -11,5 +11,5 @@ html
       = render 'layouts/navbar'
       - if current_user.admin?
         = render 'admin/home'
-    = render 'layouts/messages'
+    /= render 'layouts/messages'
     = yield

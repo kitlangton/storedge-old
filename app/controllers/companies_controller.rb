@@ -13,6 +13,8 @@ class CompaniesController < ApplicationController
     if @company.save
       redirect_to companies_path
       flash[:success] = "Company created"
+    else
+      render 'new'
     end
   end
 

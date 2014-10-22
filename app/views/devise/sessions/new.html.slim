@@ -4,13 +4,15 @@
   .col-sm-6.col-sm-offset-3.sign-in-container
     h2.form-signin-heading Please sign in
     br
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address"
-      = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
+    - flash.each do |key, value|
+      = content_tag :div, value, class: "flash alert-danger alert"
+    = devise_error_messages!
+    = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.email_field :email
+      = f.password_field :password
       - if devise_mapping.rememberable?
         label.checkbox
           = f.check_box :remember_me
-          | Remember me
       div= f.submit "Sign in", class: "btn btn-lg btn-primary btn-block"
     hr
     = render "devise/shared/links"

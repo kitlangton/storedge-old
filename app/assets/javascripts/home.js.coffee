@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(".fade-in").css "display", "none"
-  $(".fade-in").velocity "transition.slideUpIn",
-    drag: true
-    stagger: 100
+  $(document).on "page:load", ->
+    $(".fade-in").velocity "transition.slideUpIn",
+      drag: true
+      stagger: 100
