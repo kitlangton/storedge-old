@@ -6,5 +6,7 @@ $ ->
   $(".fade-in").velocity "transition.slideUpIn",
     drag: true
     stagger: 100
-  $('.thumbnail').colorbox()
-
+  $('.thumbnail').colorbox
+    retinaImage: true
+    opacity: .60
+    rel: "1"
