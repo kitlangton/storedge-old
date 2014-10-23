@@ -15,13 +15,10 @@
 //= require jquery_ujs
 //= require velocity.min
 //= require velocity.ui.min
-//= require bootstrap-lightbox
 //= require autonumeric
 //= require jquery
 //= require bootstrap-sprockets
 //= require chosen-jquery
 //= require bootstrap-filestyle
-//= require jquery.colorbox
-//= require imagesloaded.pkgd.min
 //= require turbolinks
 //= require_tree .
