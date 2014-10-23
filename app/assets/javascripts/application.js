@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require velocity.min
 //= require velocity.ui.min
+//= require autonumeric
 //= require jquery
 //= require bootstrap-sprockets
 //= require chosen-jquery

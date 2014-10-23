@@ -50,6 +50,8 @@ GEM
     arbre (1.0.2)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
+    autonumeric-rails (1.9.25.0)
+      jquery-rails (>= 2.0.2)
     autoprefixer-rails (3.1.2.20141016)
       execjs
     bcrypt (3.1.7)
@@ -70,6 +72,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     chosen-rails (1.2.0)
@@ -196,6 +203,7 @@ GEM
       json (~> 1.4)
     responders (1.0.0)
       railties (>= 3.2, < 5)
+    rmagick (2.13.3)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -277,12 +285,14 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts-as-taggable-on (~> 3.4)
+  autonumeric-rails
   autoprefixer-rails (~> 3.1.2.20141016)
   bootstrap-kaminari-views
   bootstrap-sass (~> 3.2.0)
   bootstrap_form
   cancancan (~> 1.9)
   capybara (~> 2.4.4)
+  carrierwave
   chosen-sass-bootstrap-rails
   coffee-rails (~> 4.0.0)
   compass-rails
@@ -300,6 +310,7 @@ DEPENDENCIES
   pg (~> 0.17.1)
   rails (= 4.1.6)
   rails_12factor
+  rmagick
   rspec-rails (~> 3.1.0)
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)

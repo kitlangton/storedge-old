@@ -32,6 +32,10 @@ gem 'unicorn'
 gem 'cancancan', '~> 1.9'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'chosen-sass-bootstrap-rails'
+gem 'autonumeric-rails'
+gem 'carrierwave'
+gem 'rmagick', :require => 'RMagick'
+
 
 
 group :development, :test do

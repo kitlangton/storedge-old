@@ -5,7 +5,7 @@
       br
       = bootstrap_form_for @product, url: admin_products_path do |f|
         = f.text_field :name, autofocus: true
-        = f.number_field :price
+        = f.text_field :price, label: "Price", data: {autonumeric: {aSign: '$ ', mDec: 2}}
         .above
           = f.collection_select :company_id, Company.all, :id, :name,
                  { include_blank: true },
