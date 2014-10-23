@@ -19,5 +19,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require chosen-jquery
+//= require bootstrap-filestyle
+//= require jquery.colorbox
 //= require turbolinks
 //= require_tree .

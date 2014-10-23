@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: "invitations" }
+  resources :products
   namespace :admin do
     resources :users
     resources :products

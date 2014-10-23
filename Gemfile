@@ -35,6 +35,8 @@ gem 'chosen-sass-bootstrap-rails'
 gem 'autonumeric-rails'
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
+gem 'fog'
+gem 'jquery-colorbox-rails'
 
 
 
