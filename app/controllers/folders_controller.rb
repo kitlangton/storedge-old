@@ -11,7 +11,7 @@ class FoldersController < ApplicationController
     @folder.parent_id = params[:parent_id]
     if @folder.save
       if @folder.parent
-        redirect_to @folder.parent
+        redirect_to company_folder_path(@company,@folder.parent)
       else
         redirect_to @folder.company
       end
