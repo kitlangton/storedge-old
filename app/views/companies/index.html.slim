@@ -10,8 +10,10 @@ br
     - @companies.each do |company|
       .card-container.col-sm-4
         .card.fade-in
-          h4= company.name
-          = link_to "Delete", company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button", remote: true
+          h4=link_to company.name, company_path(company)
+          .btn-group.btn-group-xs
+            = link_to "Edit", edit_company_path(company), class: "btn btn-default"
+            = link_to "Delete", company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true
 
 .center-block.text-center.fade-in
   = paginate @companies, :theme => 'twitter-bootstrap-3'

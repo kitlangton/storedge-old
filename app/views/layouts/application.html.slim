@@ -12,4 +12,9 @@ html
       = render 'layouts/navbar'
       - if current_user.admin?
         = render 'admin/home'
+      .container
+        .row
+          .col-sm-12
+            ol.breadcrumb
+              = render_breadcrumbs :tag => :li, separator: " "
     = yield

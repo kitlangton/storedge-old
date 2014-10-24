@@ -37,8 +37,8 @@ gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 gem 'fog'
 gem 'colorbox-rails'
-
-
+gem 'ancestry'
+gem "breadcrumbs_on_rails"
 
 group :development, :test do
   gem 'selenium-webdriver'

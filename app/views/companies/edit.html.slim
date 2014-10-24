@@ -1,10 +1,10 @@
-h1.text-center New
+h1.text-center Edit
 
 .container
   .row
     .col-sm-6.col-sm-offset-3.sign-in-container
-      h2.form-signin-heading Create a new company
+      h2.form-signin-heading Edit company
       br
       = bootstrap_form_for @company do |f|
         = f.text_field :name, autofocus: true, class: "form-control", placeholder: "Company name"
-        div= f.submit "Create company", class: "btn btn-lg btn-primary btn-block"
+        div= f.submit "Update company", class: "btn btn-lg btn-primary btn-block"

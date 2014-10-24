@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-sm-6.col-sm-offset-3.sign-in-container
+      h2.form-signin-heading Create a new folder
+      br
+      = bootstrap_form_for @folder do |f|
+        = f.text_field :name, autofocus: true
+        = hidden_field_tag :company_id, @company.id
+        = hidden_field_tag :parent_id, params[:parent_id]
+        div= f.submit "Create folder", class: "btn btn-lg btn-primary btn-block"

@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :product do
-    name "MyString"
+    name { Faker::Commerce.product_name }
     price "99.95"
     company
-    description "MyText"
+    folder
+    description { Faker::Lorem.paragraph }
   end
 end
