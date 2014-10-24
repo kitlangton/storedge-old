@@ -21,5 +21,6 @@
 //= require chosen-jquery
 //= require bootstrap-filestyle
 //= require turbolinks
+//= require jquery-ui
 //= require colorbox-rails
 //= require_tree .

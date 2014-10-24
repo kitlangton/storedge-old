@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: "invitations" }
   resources :products
-  resources :folders
-  resources :companies
+  resources :companies, path: "" do
+    resources :folders
+  end
   namespace :admin do
     resources :users
     resources :products

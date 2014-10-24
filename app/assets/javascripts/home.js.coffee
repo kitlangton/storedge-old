@@ -6,3 +6,8 @@ $ ->
   $(".fade-in").velocity "transition.slideUpIn",
     drag: true
     stagger: 100
+
+# $ ->
+#   $("#sortable").sortable()
+#   $("#sortable").disableSelection()
+#   return

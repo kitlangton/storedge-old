@@ -1,7 +1,9 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
   load_and_authorize_resource
 
   def index
+    redirect_to_home unless current_user.admin?
     add_breadcrumb "Companies", companies_path if current_user.try(:admin?)
     @companies = Company.all.page params[:page]
   end
@@ -22,7 +24,7 @@ class CompaniesController < ApplicationController
   def show
     add_breadcrumb "Companies", root_path if current_user.try(:admin?)
     @company = Company.find(params[:id])
-    @folders = @company.folders
+    @folders = @company.folders.roots
     @products = @company.products.where(folder:nil).page params[:page]
 
     add_breadcrumb @company.name, company_path(@company)
@@ -53,5 +55,13 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name)
+  end
+
+  def redirect_to_home
+    if current_user.admin?
+      redirect_to companies_path
+    else
+      redirect_to company_path(current_user.company)
+    end
   end
 end

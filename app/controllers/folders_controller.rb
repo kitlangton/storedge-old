@@ -1,18 +1,20 @@
 class FoldersController < ApplicationController
 
   def new
+    @company = Company.find(params[:company_id])
     @folder = Folder.new(parent_id: params[:parent_id])
-    @company = Company.find(params[:format])
   end
 
   def create
-
-    @folder = Folder.new(folder_params)
-    @folder.company_id = params[:company_id]
+    @company = Company.find(params[:company_id])
+    @folder = @company.folders.new(folder_params)
     @folder.parent_id = params[:parent_id]
     if @folder.save
-      redirect_to @folder.parent ||
-        @folder.company
+      if @folder.parent
+        redirect_to @folder.parent
+      else
+        redirect_to @folder.company
+      end
     end
   end
 
@@ -26,14 +28,14 @@ class FoldersController < ApplicationController
 
     add_breadcrumb @company.name , company_path(@company)
     @folder.ancestors.each do |parent|
-      add_breadcrumb parent.name , folder_path(parent)
+      add_breadcrumb parent.name , company_folder_path(@company,parent)
     end
-    add_breadcrumb @folder.name , folder_path(@folder)
+    add_breadcrumb @folder.name , company_folder_path(@company,@folder)
   end
 
   private
 
   def folder_params
-    params.require(:folder).permit(:name,:parent_id)
+    params.require(:folder).permit(:name,:parent_id, :company_id)
   end
 end

@@ -2,7 +2,7 @@ h1.text-center = @folder.name
 br
 
 .controls.text-center
-  = link_to new_folder_path(@company, parent_id: @folder) do
+  = link_to new_company_folder_path(@company, parent_id: @folder) do
     button.btn.btn-primary#new-folder-button
       span.glyphicon-plus.glyphicon
       strong  Folder
@@ -12,7 +12,7 @@ br
     - @folders.each do |folder|
       .card-container.col-xs-12.col-sm-6.col-md-4.col-lg-3
         .card.fade-in
-          =link_to folder_path(folder) do
+          =link_to company_folder_path(@company,folder) do
             h4= folder.name
     - @products.each do |product|
       .card-container.col-xs-12.col-sm-6.col-md-4.col-lg-3

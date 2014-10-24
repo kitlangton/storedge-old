@@ -39,6 +39,8 @@ gem 'fog'
 gem 'colorbox-rails'
 gem 'ancestry'
 gem "breadcrumbs_on_rails"
+gem 'jquery-ui-rails'
+gem 'friendly_id', '~> 5.0.0'
 
 group :development, :test do
   gem 'selenium-webdriver'
