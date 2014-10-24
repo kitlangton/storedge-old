@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: "invitations" }
   resources :products
   resources :companies, path: "" do
+    resources :products, only: [:new,:create]
     resources :folders
   end
   namespace :admin do

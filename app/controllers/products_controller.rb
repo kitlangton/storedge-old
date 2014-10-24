@@ -1,8 +1,12 @@
-class Admin::ProductsController < ApplicationController
+class ProductsController < ApplicationController
 
   def new
+    add_breadcrumb "Companies", companies_path if current_user.try(:admin?)
+
     @company = Company.find(params[:company_id])
-    @product = Product.new(company_id: params[:company_id])
+    @product = Product.new
+
+    add_breadcrumb @company.name , company_path(@company)
   end
 
   def edit
@@ -20,9 +24,10 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @company = Company.find(params[:company_id])
+    @product = @company.products.new(product_params)
     if @product.save
-      redirect_to admin_products_path
+      redirect_to company_path(@company)
     else
       render 'new'
     end

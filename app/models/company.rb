@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+  mount_uploader :brand_image, BrandImageUploader
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
   paginates_per 12

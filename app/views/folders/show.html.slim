@@ -1,5 +1,8 @@
-h1.text-center = @folder.name
-br
+.container
+  .row
+    .col-sm-12
+      ol.breadcrumb
+        = render_breadcrumbs :tag => :li, separator: " "
 
 .controls.text-center
   = link_to new_company_folder_path(@company, parent_id: @folder) do

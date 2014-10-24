@@ -7,4 +7,5 @@ h1.text-center New
       br
       = bootstrap_form_for @company do |f|
         = f.text_field :name, autofocus: true, class: "form-control", placeholder: "Company name"
+        = f.file_field :brand_image, label: "Brand Image", class: "btn text-center", id: "upload-button"
         div= f.submit "Create company", class: "btn btn-lg btn-primary btn-block"

@@ -1,4 +1,4 @@
-nav.navbar.navbar-default role="navigation" 
+nav.navbar.navbar-default role="navigation"
   .container-fluid
     /! Brand and toggle get grouped for better mobile display
     .navbar-header
@@ -27,3 +27,5 @@ nav.navbar.navbar-default role="navigation"
                   = link_to "Companies", companies_path
       ul.nav.navbar-nav.navbar-right
         = render 'layouts/nav_bar_user_dropdown'
+      ul.nav.nav-justified
+        li.navbar-brand.brand-image.text-center= image_tag current_user.try(:company).try(:brand_image_url, :thumb)

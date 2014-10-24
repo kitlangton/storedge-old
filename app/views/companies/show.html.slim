@@ -1,11 +1,20 @@
-h1.text-center = @company.try(:name)
-br
+.container
+  .row
+    .col-sm-12
+      ol.breadcrumb
+        = render_breadcrumbs :tag => :li, separator: " "
+
 
 .controls.text-center
   = link_to new_company_folder_path(@company) do
     button.btn.btn-primary#new-folder-button
       span.glyphicon-plus.glyphicon
       strong  Folder
+  = link_to new_company_product_path(@company) do
+    button.btn.btn-primary#new-folder-button
+      span.glyphicon-plus.glyphicon
+      strong  Product
+
 
 .container
   .products.row
