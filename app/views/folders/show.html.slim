@@ -4,11 +4,12 @@
       ol.breadcrumb
         = render_breadcrumbs :tag => :li, separator: " "
 
-.controls.text-center
-  = link_to new_company_folder_path(@company, parent_id: @folder) do
-    button.btn.btn-primary#new-folder-button
-      span.glyphicon-plus.glyphicon
-      strong  Folder
+- if current_user.admin?
+  .controls.text-center
+    = link_to new_company_folder_path(@company, parent_id: @folder) do
+      button.btn.btn-primary#new-folder-button
+        span.glyphicon-plus.glyphicon
+        strong  Folder
 
 .container
   .products.row
