@@ -2,9 +2,10 @@ require 'rails_helper'
 
 feature "Users only sees their company's products" do
 
-  let(:user) { create(:user) }
-  let(:product) { create(:product) }
   let(:company) { create(:company) }
+  let(:other_company) { create(:company) }
+  let(:user) { create(:user, company: company) }
+  let!(:product) { create(:product, company: company) }
 
   before(:each) do
     login(user)
@@ -12,17 +13,14 @@ feature "Users only sees their company's products" do
 
   describe "A user logs in as under the company" do
     it "sees CocaCola's products" do
-      user.update(company: company)
-      product.update(company: company)
-
       visit root_path
       expect(page).to have_content product.name
     end
 
     it "doesn't see other companies products" do
-      user.update(company: company)
-
+      product.update(company: other_company)
       visit root_path
+
       expect(page).not_to have_content product.name
     end
   end

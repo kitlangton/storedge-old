@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 feature "Admins can categorize products into folders" do
-  let(:user) { create(:user) }
+  let(:company) { create(:company) }
+  let(:user) { create(:user, company: company) }
   let(:admin) { create(:admin) }
-  let!(:product) { create(:product) }
-  let!(:folder) { create(:folder) }
-  let!(:company) { create(:company) }
+  let!(:folder) { create(:folder, company: company) }
+  let!(:product) { create(:product, company: company) }
 
   describe "when logged in as user" do
     it "user sees folders and subfolders" do

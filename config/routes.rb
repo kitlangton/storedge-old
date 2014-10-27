@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: "invitations" }
   resources :products
+  resources :shopping_cart_items
   resources :companies, path: "" do
     resources :products, only: [:new,:create]
     resources :folders

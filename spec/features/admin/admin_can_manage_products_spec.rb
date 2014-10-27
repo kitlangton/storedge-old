@@ -4,10 +4,10 @@ feature "Admin can manage all products" do
 
   let(:admin) { create(:admin) }
   let!(:company) { create(:company) }
-  let!(:user) { create(:user) }
-  let!(:product) { create(:product) }
+  let!(:user) { create(:user, company: company) }
+  let!(:product) { create(:product, company: company) }
 
-  before do
+  before (:each) do
     login(admin)
     click_link "Admin"
     click_link "Products"
@@ -19,11 +19,12 @@ feature "Admin can manage all products" do
   end
 
   scenario "creating products", js: true do
+    click_link "Home"
+    click_link company.name
     click_button "new-product-button"
 
     fill_in "Name", with: "Wonderous Product"
     fill_in "Price", with: "55.55"
-    find("#product_price").native.send_keys "\t#{company.name}\n"
     click_button "Create product"
 
     expect(page).to have_content "Wonderous Product"

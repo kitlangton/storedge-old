@@ -2,8 +2,6 @@ require 'rails_helper'
 
 feature "Admin manages companies" do
   let(:admin) { create(:admin) }
-  let(:user) { create(:user) }
-  let!(:company) { create(:company) }
 
   before do
     login(admin)
@@ -21,6 +19,8 @@ feature "Admin manages companies" do
   end
 
   scenario "deleting companies", js: true do
+    company = create(:company)
+    visit root_path
     click_link "Delete"
     accept_dialog
     wait_for_ajax

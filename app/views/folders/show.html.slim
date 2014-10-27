@@ -18,17 +18,7 @@
         .card.fade-in
           =link_to company_folder_path(@company,folder) do
             h4= folder.name
-    - @products.each do |product|
-      .card-container.col-xs-12.col-sm-6.col-md-4.col-lg-3
-        .card.fade-in
-          a= image_tag product.product_image_url(:thumb), class: "product-image-th  img-responsive center-block thumbnail", href: product.product_image_url, data: { colorbox: true, title: product.name }
-          h4= product.name
-          h5= number_to_currency(product.price)
-          /h5= product.company.try(:name)
-          .btn-group.btn-group-xs
-            = link_to "Edit", edit_admin_product_path(product), class: "btn btn-default"
-            = link_to "Delete", admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true
-
+    = render @products
 .center-block.text-center.fade-in
   = paginate @products, :theme => 'twitter-bootstrap-3'
 

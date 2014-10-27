@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024202947) do
+ActiveRecord::Schema.define(version: 20141027220353) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -60,6 +60,25 @@ ActiveRecord::Schema.define(version: 20141024202947) do
 
   add_index "products", ["company_id"], name: "index_products_on_company_id"
   add_index "products", ["folder_id"], name: "index_products_on_folder_id"
+
+  create_table "shopping_cart_items", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.integer  "quantity"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shopping_carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "shopping_carts", ["user_id"], name: "index_shopping_carts_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

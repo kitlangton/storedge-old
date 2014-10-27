@@ -3,8 +3,8 @@ require 'rails_helper'
 feature "Admin can manage all users" do
 
   let(:admin) { create(:admin) }
-  let!(:company) { create(:company) }
-  let!(:user) { create(:user) }
+  let(:company) { create(:company) }
+  let!(:user) { create(:user, company: company) }
 
   before do
     login(admin)
@@ -38,11 +38,15 @@ feature "Admin can manage all users" do
 
   scenario "editing users", js: true do
     click_link "Edit"
+    fill_in "Email", with: "chub.dobs@coloredge.com"
     fill_in "First name", with: "Chubby"
     fill_in "Last name", with: "Dobby"
     click_button "Update user"
 
+    expect(page).to have_content "chub.dobs@coloredge.com"
     expect(page).to have_content "Chubby Dobby"
+    expect(page).to have_content company.name
+
   end
 
 end
