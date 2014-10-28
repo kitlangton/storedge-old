@@ -5,15 +5,12 @@
         = render_breadcrumbs :tag => :li, separator: " "
 
 - if current_user.admin?
-  .controls.text-center
-    = link_to new_company_folder_path(@company) do
-      button.btn.btn-primary#new-folder-button
-        span.glyphicon-plus.glyphicon
-        strong  Folder
-    = link_to new_company_product_path(@company) do
-      button.btn.btn-primary#new-product-button
-        span.glyphicon-plus.glyphicon
-        strong  Product
+  .text-center
+    .controls.text-center.btn-group.btn-group-center
+      = link_to new_company_folder_path(@company), class: "btn btn-primary", type: "button" do
+        strong  New Folder
+      = link_to new_company_product_path(@company), class: "btn btn-primary", type: "button" do
+        strong  New Product
 
 
 .container
@@ -23,6 +20,9 @@
         .card.fade-in
           =link_to company_folder_path(@company,folder) do
             h4= folder.name
+          .btn-group.btn-group-xs.card-edit
+            = link_to "Edit", edit_company_folder_path(@company,folder), class: "btn btn-default"
+            = link_to "Delete", company_folder_path(@company,folder), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true
     = render @products
 
 .center-block.text-center.fade-in

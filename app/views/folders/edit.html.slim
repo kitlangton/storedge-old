@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-sm-6.col-sm-offset-3.sign-in-container
+      h2.form-signin-heading Edit folder
+      br
+      = bootstrap_form_for @folder, url: company_folder_path(@company, @folder) do |f|
+        = f.text_field :name, autofocus: true
+        = hidden_field_tag :parent_id, params[:parent_id]
+        div= f.submit "Update folder", class: "btn btn-lg btn-primary btn-block"

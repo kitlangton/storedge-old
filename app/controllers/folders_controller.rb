@@ -5,6 +5,11 @@ class FoldersController < ApplicationController
     @folder = Folder.new(parent_id: params[:parent_id])
   end
 
+  def edit
+    @company = Company.find(params[:company_id])
+    @folder = Folder.find(params[:id])
+  end
+
   def create
     @company = Company.find(params[:company_id])
     @folder = @company.folders.new(folder_params)
@@ -15,6 +20,24 @@ class FoldersController < ApplicationController
       else
         redirect_to @folder.company
       end
+    end
+  end
+
+  def update
+    @folder = Folder.find(params[:id])
+    if @folder.update(folder_params)
+      puts params
+      redirect_to (@folder.parent || @folder.company)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @folder = Folder.find(params[:id])
+    if @folder.destroy
+      render nothing: true
+      flash[:success] = "Company destroyed"
     end
   end
 
