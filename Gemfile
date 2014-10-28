@@ -44,8 +44,6 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 
 group :development, :test do
-  gem 'poltergeist'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'selenium-webdriver'
