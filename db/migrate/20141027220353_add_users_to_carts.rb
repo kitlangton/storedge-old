@@ -1,4 +1,4 @@
-class AddUserToCarts < ActiveRecord::Migration
+class AddUsersToCarts < ActiveRecord::Migration
   def change
     add_reference :shopping_carts, :user, index: true
   end
