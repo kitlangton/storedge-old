@@ -23,4 +23,5 @@
 //= require turbolinks
 //= require jquery-ui
 //= require colorbox-rails
+//= require jquery.noty.packaged
 //= require_tree .
