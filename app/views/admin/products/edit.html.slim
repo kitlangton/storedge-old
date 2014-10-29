@@ -1,7 +1,7 @@
 .container
   .row
     .col-sm-6.col-sm-offset-3.sign-in-container
-      h2.form-signin-heading Update product
+      h2.form-signin-heading= "Update #{@product.company.name} product"
       br
       = bootstrap_form_for @product, url: admin_product_path do |f|
         = image_tag @product.product_image_url(:thumb), class: "product-image-th img-responsive center-block thumbnail", href: @product.product_image_url
@@ -9,7 +9,7 @@
         = f.text_field :price, label: "Price", data: {autonumeric: {aSign: '$ ', mDec: 2}}
         = f.file_field :product_image, label: "Image", class: "btn text-center", id: "upload-button"
         .above
-          = f.collection_select :company_id, Company.all, :id, :name,
+          = f.collection_select :folder_id, Folder.where(company_id: @product.company), :id, :name,
                  { include_blank: true },
                  { class: 'chosen-select' }
         div= f.submit "Update product", class: "btn btn-lg btn-primary btn-block"

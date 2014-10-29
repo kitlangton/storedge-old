@@ -8,7 +8,7 @@
         = f.text_field :price, label: "Price", data: {autonumeric: {aSign: '$ ', mDec: 2}}
         = f.file_field :product_image, label: "Image", class: "btn text-center", id: "upload-button"
         .above
-          = f.collection_select :company_id, Company.all, :id, :name,
+          = f.collection_select :folder_id, Folder.where(company: @company), :id, :name,
                  { include_blank: true },
                  { class: 'chosen-select' }
         div= f.submit "Create product", class: "btn btn-lg btn-primary btn-block"
