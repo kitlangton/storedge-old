@@ -10,6 +10,7 @@ br
     - @companies.each do |company|
       .card-container.col-sm-4
         .card.fade-in
+          a= image_tag company.brand_image_url(:thumb), class: "product-image-th  img-responsive center-block", href: company.brand_image_url, data: { colorbox: true, title: company.name }
           h4=link_to company.name, company_path(company)
           .btn-group.btn-group-xs
             = link_to "Edit", edit_company_path(company), class: "btn btn-default"

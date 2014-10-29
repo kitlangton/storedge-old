@@ -1,0 +1,13 @@
+.cocacola {
+  a {
+    color: red;
+  }
+  .btn {
+    color: red;
+    border-color: red;
+    background: white;
+    &:hover {
+      background: lightpink;
+    }
+  }
+}
