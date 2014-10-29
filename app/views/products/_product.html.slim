@@ -5,7 +5,7 @@
     h5= number_to_currency(product.price)
     form.form.add-to-cart.disp-none data-product-id=(product.id) role="form"
       .form-group
-        .quantity-field.col-sm-6.col-sm-offset-3
+        .quantity-field
           = number_field_tag :quantity, "", class: "form-control", placeholder: "Quantity"
       .form-group
         = button_tag "Submit", class: "add-to-cart-button btn btn-primary"
