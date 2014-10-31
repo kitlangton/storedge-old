@@ -95,6 +95,33 @@ body {
    }
 }
 
+.best_in_place {
+  &:hover {
+    // color: orange;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  input:focus {
+    // position: relative;
+    // bottom: 40px;
+    // left: 0px;
+    color: black;
+    // font-style: bold;
+    // font-style: italic;
+    width: 40px;
+    text-align: right;
+    // background: transparent;
+    // outline-color: transparent;
+    // outline-style: none;
+    // border: none;
+    // overflow: hidden;
+    // outline: none;
+    // -webkit-box-shadow: none;
+    // -moz-box-shadow: none;
+    // box-shadow: none;
+  }
+}
+
 .cart-item {
   &:hover {
     cursor: pointer;

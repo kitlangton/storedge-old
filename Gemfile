@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails', '~> 3.1.2.20141016'
 
+gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 gem 'newrelic_rpm'
 gem 'slim-rails', '~> 2.1.5'
 gem 'faker', '~> 1.4.3'

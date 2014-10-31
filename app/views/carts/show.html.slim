@@ -2,30 +2,30 @@
   .row.cart.card.cart-card.cart-fade
     h1.text-center Shopping Cart
     br
-    table.table.table-hover
+    table.table
       thead
         tr
           th Name
-          th Quantity
-          th Item Price
-          th Item Total
+          th.text-right Quantity
+          th.text-right Item Price
+          th.text-right Item Total
       tbody
         - @cart.shopping_cart_items.each do |line_item|
           tr
             td
               = content_tag :span, line_item.item.name,  href: line_item.item.product_image_url, data: { colorbox: true, title: line_item.item.name }, class: "cart-item"
-            td
-              = line_item.quantity
-            td
+            td.text-right
+              = best_in_place line_item, :quantity, class: "inline-form", min: 0
+            td.text-right
               = number_to_currency(line_item.price)
-            td
+            td.text-right.item-subtotal-cart
               = number_to_currency(line_item.subtotal)
       tfoot
         tr.active
           th
-          th
+          th.text-right.cart-total-quantity
             = @cart.total_unique_items
           th
-          th
-            = number_to_currency(@cart.total)
+          th.text-right.cart-subtotal
+            = number_to_currency(@cart.subtotal)
 

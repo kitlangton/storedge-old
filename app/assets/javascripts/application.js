@@ -23,6 +23,7 @@
 //= require turbolinks
 //= require jquery-ui
 //= require jquery.qtip.min
+//= require best_in_place
 //= require colorbox-rails
 //= require jquery.noty.packaged
 //= require_tree .

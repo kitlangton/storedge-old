@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     add_breadcrumb "Companies", companies_path if current_user.try(:admin?)
 
     @company = Company.find(params[:company_id])
-    @product = Product.new
+    @product = Product.new(folder_id: params[:folder_id])
 
     add_breadcrumb @company.name , company_path(@company)
   end
@@ -26,7 +26,6 @@ class ProductsController < ApplicationController
   def create
     @company = Company.find(params[:company_id])
     @product = @company.products.new(product_params)
-    @product.folder = Folder.find(params[:folder_id])
     if @product.save
       redirect_to (company_folder_path(@company,@product.folder) || @company)
     else
@@ -49,6 +48,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :company_id, :product_image)
+    params.require(:product).permit(:name, :price, :company_id, :product_image, :folder_id)
   end
 end
