@@ -2,6 +2,6 @@
   .card.folder-card.fade-in
     =link_to company_folder_path(@company,folder) do
       h3= folder.name
-        .btn-group.btn-group-xs.card-edit
-          = link_to "Edit", edit_company_folder_path(@company,folder), class: "btn btn-default"
-            = link_to "Delete", company_folder_path(@company,folder), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true
+      .btn-group.btn-group-xs.card-edit
+        = link_to "Edit", edit_company_folder_path(@company,folder), class: "btn btn-default"
+        = link_to "Delete", company_folder_path(@company,folder), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true

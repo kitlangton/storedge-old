@@ -1,0 +1,26 @@
+.container.cart-container
+  .row.cart.card.cart-card.cart-fade
+    h1.text-center Shopping Cart
+    br
+    table.table.table-hover
+      thead
+        tr
+          th Name
+          th Quantity
+          th Item Total
+      tbody
+        - @cart.shopping_cart_items.each do |line_item|
+          tr
+            td
+              = line_item.item.name
+            td
+              = line_item.quantity
+            td
+              = number_to_currency(line_item.subtotal)
+      tfoot
+        tr
+          td
+          td
+          th
+            = number_to_currency(@cart.total)
+

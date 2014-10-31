@@ -27,7 +27,11 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
     if @folder.update(folder_params)
       puts params
-      redirect_to (company_folder_path(@folder.company,@folder.parent) || @folder.company)
+      if @folder.parent
+        redirect_to company_folder_path(@folder.company,@folder.parent)
+      else
+        redirect_to @folder.company
+      end
     else
       render 'edit'
     end

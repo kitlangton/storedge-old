@@ -26,6 +26,8 @@ nav.navbar.navbar-default role="navigation"
                 li
                   = link_to "Companies", companies_path
       ul.nav.navbar-nav.navbar-right
+        li
+          = link_to "Cart", cart_path
         = render 'layouts/nav_bar_user_dropdown'
       ul.nav.nav-justified
         li.navbar-brand.brand-image.text-center= image_tag current_user.try(:company).try(:brand_image_url, :thumb)
