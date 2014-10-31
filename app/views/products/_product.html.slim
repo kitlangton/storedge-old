@@ -2,16 +2,19 @@
   .card.fade-in
     a= image_tag product.product_image_url(:thumb), class: "product-image-th  img-responsive center-block thumbnail", href: product.product_image_url, data: { colorbox: true, title: product.name }
     h4= product.name
-    h5= number_to_currency(product.price)
+    h5
+      = number_to_currency(product.price) + " "
+      span.badge.cart-quantity-label.has-tooltip data-tooltip= number_to_currency(current_user.cart.subtotal_for(product)) = current_user.cart.quantity_for(product) > 0 ? current_user.cart.quantity_for(product) : ""
     form.form.add-to-cart.disp-none data-product-id=(product.id) role="form"
       .form-group
         .quantity-field
-          = number_field_tag :quantity, "", class: "form-control", placeholder: "Quantity"
+          = number_field_tag :quantity, current_user.cart.try(:item_for,product).try(:quantity), class: "form-control", placeholder: "Quantity", min: 0 
       .form-group
         = button_tag "Submit", class: "add-to-cart-button btn btn-primary"
     .cart-toggle
       = button_tag "Add To Cart", class: "cart-add-toggle btn btn-primary"
     /h5= product.company.try(:name)
-    .btn-group.btn-group-xs.card-edit
-      = link_to "Edit", edit_admin_product_path(product), class: "btn btn-default"
-      = link_to "Delete", admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true
+    - if current_user.admin?
+      .btn-group.btn-group-xs.card-edit
+        = link_to "Edit", edit_admin_product_path(product), class: "btn btn-default"
+        = link_to "Delete", admin_product_path(product), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true

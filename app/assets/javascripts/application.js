@@ -22,6 +22,7 @@
 //= require bootstrap-filestyle
 //= require turbolinks
 //= require jquery-ui
+//= require jquery.qtip.min
 //= require colorbox-rails
 //= require jquery.noty.packaged
 //= require_tree .

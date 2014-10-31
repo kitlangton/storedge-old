@@ -7,6 +7,11 @@
   background: #EEE;
 }
 
+.has-tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
 .card {
   clear: both;
 }
@@ -88,6 +93,12 @@ body {
    &:hover {
      border-color: $brand-primary;
    }
+}
+
+.cart-item {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .cart-card {
