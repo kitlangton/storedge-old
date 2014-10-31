@@ -39,6 +39,17 @@ class ShoppingCartItemsController < ApplicationController
       end
     end
   end
+  
+  def destroy
+    @cart = current_user.cart
+    @line_item = ShoppingCartItem.find(params[:id])
+    if @line_item.destroy
+      render json: {
+        cart_total_items: @cart.total_unique_items,
+        cart_subtotal: number_to_currency(@cart.subtotal),
+      }
+    end
+  end
 
   private
 
