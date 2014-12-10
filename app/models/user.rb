@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   before_create :titleize_name
   belongs_to :company
+  has_many :orders
   has_one :shopping_cart, dependent: :destroy
   acts_as_taggable
   # Include default devise modules. Others available are:

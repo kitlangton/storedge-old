@@ -22,16 +22,18 @@ class ShoppingCartItemsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @cart = current_user.cart
-    @quantity = params[:quantity].to_i
-    @line_item = @cart.add(@product,@product.price.to_f,@quantity,false)
-    if @quantity == 0
-      @cart.remove(@product)
+    @quantity = params[:quantity]
+    @line_item = @cart.add(@product,@product.price.to_f,@quantity.to_i,false)
+    if @quantity.to_i < 0 || @quantity !~ /[0-9]/
+      raise ArgumentError
+    elsif @quantity == "0"
+      @cart.remove(@product, 10000000)
     end
     respond_to do |format|
       format.json do
         render json: {
           name: @product.name,
-          quantity: @quantity,
+          quantity: @quantity.to_i,
           total_quantity: @line_item.quantity,
           cart_quantity: @cart.total_unique_items,
           subtotal: number_to_currency(@product.price.to_f * @line_item.quantity),
@@ -39,7 +41,7 @@ class ShoppingCartItemsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @cart = current_user.cart
     @line_item = ShoppingCartItem.find(params[:id])

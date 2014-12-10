@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { invitations: "invitations" }
   resource :cart
+  resources :orders
   resources :products
   resources :shopping_cart_items
   resources :companies, path: "" do

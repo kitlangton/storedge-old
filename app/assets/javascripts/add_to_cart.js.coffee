@@ -45,4 +45,3 @@ $ ->
           timeout: 3000
           layout: 'topCenter'
       error: (stuff) ->
-        alert "error: " + stuff
