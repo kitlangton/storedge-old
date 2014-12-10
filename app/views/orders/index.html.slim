@@ -1,0 +1,21 @@
+h1.text-center My Orders
+br
+
+.container
+  .orders.row
+    - @orders.each do |order|
+      .card-container.col-sm-3
+        .card.fade-in
+          h3= link_to "##{order.id}", order_path(order)
+          h5= "#{order.created_at.strftime("%b %d, %Y")}"
+          h5= "#{order.total_quantity} items"
+
+          /a= image_tag company.brand_image_url(:thumb), class: "product-image-th  img-responsive center-block", href: company.brand_image_url, data: { colorbox: true, title: company.name }
+          /h4=link_to company.name, company_path(company)
+          /- if current_user.admin?
+          /  .btn-group.btn-group-xs
+          /    = link_to "Edit", edit_company_path(company), class: "btn btn-default"
+          /    = link_to "Delete", company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class:"delete-company-button btn btn-danger", remote: true
+
+.center-block.text-center.fade-in
+  = paginate @orders, :theme => 'twitter-bootstrap-3'

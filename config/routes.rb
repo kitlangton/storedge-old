@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+
   devise_for :users, controllers: { invitations: "invitations" }
   resource :cart
   resources :orders
