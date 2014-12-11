@@ -13,4 +13,5 @@ html
       - if current_user.admin?
         = render 'admin/home'
     = render 'layouts/flash'
+    - if current_user && current_user.try(:company)
     = yield

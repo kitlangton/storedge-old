@@ -1,4 +1,4 @@
-h1.text-center My Orders
+h1.text-center Manage Orders
 br
 
 .container
@@ -12,6 +12,7 @@ br
           h5
             strong
               = "#{order.created_at.strftime("%b %d, %Y")}"
+          h5= "#{order.user.email}"
           h5= "#{order.total_quantity} items"
 
           /a= image_tag company.brand_image_url(:thumb), class: "product-image-th  img-responsive center-block", href: company.brand_image_url, data: { colorbox: true, title: company.name }

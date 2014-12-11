@@ -6,6 +6,7 @@ class Company < ActiveRecord::Base
   has_many :products
   has_many :users
   has_many :folders
+  has_many :orders
 
   validates :name, presence: true, uniqueness: true
 end

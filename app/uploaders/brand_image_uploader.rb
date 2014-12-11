@@ -30,7 +30,10 @@ class BrandImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
   version :brand do
-    process :resize_to_limit => [50, 50]
+    process :resize_to_limit => [50, 30]
+  end
+  version :banner do
+    process :resize_to_limit => [600, 100]
   end
   version :thumb do
     process :resize_to_limit => [200, 200]

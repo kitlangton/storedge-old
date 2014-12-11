@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   # def current_cart
   #   self.cart || User.cart.create
   # end
+  #
   def cart
     shopping_cart || create_shopping_cart
   end

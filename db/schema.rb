@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210174839) do
+ActiveRecord::Schema.define(version: 20141211191753) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -51,8 +51,11 @@ ActiveRecord::Schema.define(version: 20141210174839) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id"
+    t.string   "status",     default: "New"
   end
 
+  add_index "orders", ["company_id"], name: "index_orders_on_company_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: true do |t|
@@ -136,6 +139,7 @@ ActiveRecord::Schema.define(version: 20141210174839) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.boolean  "csr"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id"

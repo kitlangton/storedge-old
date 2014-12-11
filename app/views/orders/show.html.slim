@@ -2,6 +2,7 @@
   .row.cart.card.cart-card.cart-fade
     h1.text-center= "Order ##{@order.id}"
     br
+
     table.table
       thead
         tr
@@ -24,7 +25,12 @@
         tr.active
           th
           th.text-right.cart-total-quantity
-            = @order.total_unique_items
+            = @order.total_quantity
           th
           th.text-right.cart-subtotal
             = number_to_currency(@order.subtotal)
+    - if current_user.csr?
+      = bootstrap_form_for @order do |f|
+        =f.select :status, ["New", "Processed", "Shipped"]
+        =f.submit "Update Status", class: "btn btn-success"
+      br

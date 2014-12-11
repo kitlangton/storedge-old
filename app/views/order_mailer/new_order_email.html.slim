@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    meta content="text/html" charset="UTF-8" http-equiv="Content-Type"
+  body
+    h1 A New Order Has Been Placed
+    h2= "by #{@user.email} on #{@order.created_at.strftime("%b %d, %Y")}"
+    h2= link_to "Order ##{@order.id}", order_url(@order)

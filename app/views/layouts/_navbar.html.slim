@@ -25,11 +25,12 @@ nav.navbar.navbar-default role="navigation"
                   = link_to "Products", admin_products_path
                 li
                   = link_to "Companies", companies_path
+        - if current_user && current_user.csr?
+          li
+            = link_to "Manage Orders", admin_orders_path
       ul.nav.navbar-nav.navbar-right
         li
           = link_to "My Orders", orders_path
         li
           = link_to "Cart <span class='badge cart-total-count'>#{current_user.cart.total_unique_items.to_s}</span>".html_safe , cart_path
         = render 'layouts/nav_bar_user_dropdown'
-      ul.nav.nav-justified
-        li.navbar-brand.brand-image.text-center= image_tag current_user.try(:company).try(:brand_image_url, :thumb)

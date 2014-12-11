@@ -9,7 +9,7 @@ br
   .users.row
     - @users.each do |user|
       .card-container.col-sm-4
-        .card.fade-in class=("admin-card" if user.admin?)
+        .card.fade-in class=(user_type(user))
           h4= user.full_name
           h5= user.company.try(:name) || ("Admin" if user.admin?)
           h5= user.email

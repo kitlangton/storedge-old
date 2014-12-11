@@ -13,6 +13,13 @@ FactoryGirl.define do
       email "admin@coloredge.com"
       admin      true
     end
+
+    factory :csr do
+      first_name "CSR"
+      last_name  "User"
+      email "csr@coloredge.com"
+      csr      true
+    end
   end
 
 end
