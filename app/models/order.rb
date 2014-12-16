@@ -13,6 +13,13 @@ class Order < ActiveRecord::Base
   #   shopping_cart_items.count
   # end
   #
+  #
+  def display_status
+    if status == "New" && created_at < 5.day.ago
+      return "Old"
+    end
+    status
+  end
 
   def subtotal
     subtotal = 0
