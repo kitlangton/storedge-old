@@ -47,7 +47,6 @@ class CompaniesController < ApplicationController
   def destroy
     if @company.destroy
       render nothing: true
-      flash[:success] = "Company destroyed"
     end
   end
 

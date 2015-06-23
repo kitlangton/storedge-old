@@ -11,3 +11,20 @@
     }
   }
 }
+
+.whole-foods {
+  a {
+    color: green;
+  }
+  .product-image-th:hover {
+    border-color: lightgreen;
+  }
+  .btn {
+    color: green;
+    border-color: green;
+    background: white;
+    &:hover {
+      background: lightgreen;
+    }
+  }
+}

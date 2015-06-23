@@ -41,7 +41,6 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
     if @folder.destroy
       render nothing: true
-      flash[:success] = "Company destroyed"
     end
   end
 
