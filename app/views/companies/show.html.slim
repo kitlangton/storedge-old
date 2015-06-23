@@ -9,13 +9,13 @@
     .controls.text-center.btn-group.btn-group-center
       = link_to new_company_folder_path(@company), class: "btn btn-primary", type: "button" do
         strong  New Folder
-      = link_to new_company_product_path(@company), class: "btn btn-primary", type: "button" do
-        strong  New Product
-
+      = link_to new_company_product_path(@company), class: "btn btn-primary", id: "new-product-button", type: "button" do
+        strong New Product
 
 .container
   .products.row
     = render @folders
+  .products.row
     = render @products
 
 .center-block.text-center.fade-in

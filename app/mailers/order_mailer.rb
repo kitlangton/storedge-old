@@ -10,4 +10,11 @@ class OrderMailer < ActionMailer::Base
       mail(to: csr.email, subject: "New Order Placed for #{@company.name}")
     end
   end
+
+  def order_status_email(order)
+    @user = order.user
+    @order = order
+    @company = @user.company
+    mail(to: @user.email, subject: "Status Changed to #{@order.status} for Order ##{@order.id}")
+  end
 end

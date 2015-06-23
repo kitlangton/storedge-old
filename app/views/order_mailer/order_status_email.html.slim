@@ -1,0 +1,7 @@
+doctype html
+html
+  head
+    meta content="text/html" charset="UTF-8" http-equiv="Content-Type"
+  body
+    h1= link_to "Order ##{@order.id}:", order_url(@order)
+    h2= "Your order is now #{@order.status} on #{@order.updated_at.strftime("%b %d, %Y")}"

@@ -11,9 +11,11 @@ feature "User adds a product to their cart" do
     visit root_path
     click_link folder.name
 
+    click_button "Add To Cart"
     fill_in "quantity", with: "5"
-    click_button ".add-to-cart-button"
+    click_button "Submit"
+    click_link "Cart"
 
-    expect(page).to have_content "#{product.name} added to cart."
+    expect(page).to have_content product.name
   end
 end

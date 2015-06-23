@@ -27,7 +27,11 @@ class ProductsController < ApplicationController
     @company = Company.find(params[:company_id])
     @product = @company.products.new(product_params)
     if @product.save
-      redirect_to (company_folder_path(@company,@product.folder) || @company)
+      if @product.folder
+        redirect_to company_folder_path(@company,@product.folder)
+      else
+        redirect_to @company
+      end
     else
       render 'new'
     end

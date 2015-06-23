@@ -21,7 +21,7 @@ feature "Admin can manage all products" do
   scenario "creating products", js: true do
     click_link "Home"
     click_link company.name
-    click_button "new-product-button"
+    click_link "new-product-button"
 
     fill_in "Name", with: "Wonderous Product"
     fill_in "Price", with: "55.55"

@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
+      OrderMailer.order_status_email(@order).deliver
       redirect_to admin_orders_path
       flash[:success] = "Order ##{@order.id}'s status has been changed successfully!"
     else

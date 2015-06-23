@@ -27,7 +27,7 @@ feature "Admins can categorize products into folders" do
       click_link "Companies"
       click_link company.name
 
-      click_button "new-folder-button"
+      click_link "New Folder"
       fill_in "Name", with: "Local Products"
       click_button "Create folder"
 
