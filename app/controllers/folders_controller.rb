@@ -50,7 +50,7 @@ class FoldersController < ApplicationController
     @folder = Folder.find(params[:id])
     @folders = @folder.children
     @company = @folder.company
-    @products = @folder.products.page params[:page]
+    @products = @folder.products.published.page params[:page]
 
     add_breadcrumb @company.name , company_path(@company)
     @folder.ancestors.each do |parent|

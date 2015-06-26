@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :product do
     name { Faker::Commerce.product_name }
+    company
     price "99.95"
     description { Faker::Lorem.paragraph }
   end

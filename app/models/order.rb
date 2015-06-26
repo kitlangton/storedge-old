@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
+  after_create :send_new_order_email
   default_scope {order 'created_at DESC' }
+  validates :user, presence: true
 
   belongs_to :user
   belongs_to :company
@@ -14,6 +16,7 @@ class Order < ActiveRecord::Base
   # end
   #
   #
+
   def display_status
     if status == "New" && created_at < 5.day.ago
       return "Old"
@@ -27,5 +30,11 @@ class Order < ActiveRecord::Base
       subtotal += item.quantity * item.price
     end
     subtotal
+  end
+
+  def send_new_order_email
+    user.company.csrs.each do |csr|
+      OrderMailer.new_order_email(csr, self).deliver
+    end
   end
 end

@@ -21,10 +21,10 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :test
   config.action_mailer.raise_delivery_errors = true
   # Send email in development mode?
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false

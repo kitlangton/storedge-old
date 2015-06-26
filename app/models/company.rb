@@ -9,4 +9,9 @@ class Company < ActiveRecord::Base
   has_many :orders
 
   validates :name, presence: true, uniqueness: true
+
+  def csrs
+    users.select(&:csr?)
+  end
+
 end

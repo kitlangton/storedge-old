@@ -45,11 +45,11 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 
 group :development, :test do
+  gem 'timecop'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'guard-rspec'
   gem 'guard-livereload'
-  gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'sqlite3'
   gem 'shoulda-matchers', '~> 2.7.0'
@@ -63,4 +63,8 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'pg', '~> 0.17.1'
+end
+
+group :test do
+  gem 'poltergeist'
 end

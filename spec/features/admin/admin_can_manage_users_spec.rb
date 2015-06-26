@@ -19,10 +19,11 @@ feature "Admin can manage all users" do
   scenario "creating users", js: true do
     click_button "new-user-button"
 
+    sleep(1)
     fill_in "Email", with: "anewuser@coloredge.com"
     fill_in "First name", with: "Newman"
     fill_in "Last name", with: "Userton"
-    find("#user_last_name").native.send_keys "\t#{company.name}\n"
+    find("#user_last_name").native.send_keys(:Tab, company.name, :Enter)
     click_button "Create user"
 
     expect(page).to have_content "anewuser@coloredge.com"
@@ -32,12 +33,11 @@ feature "Admin can manage all users" do
 
   scenario "deleting users", js: true do
     click_link "Delete"
-    accept_dialog
     expect(page).not_to have_content user.email
   end
 
   scenario "editing users", js: true do
-    click_link "Edit"
+    first(:link, "Edit").click
     fill_in "Email", with: "chub.dobs@coloredge.com"
     fill_in "First name", with: "Chubby"
     fill_in "Last name", with: "Dobby"

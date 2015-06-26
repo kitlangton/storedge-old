@@ -35,9 +35,11 @@ class Admin::ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
 
-    if @product.destroy
+    if @product.remove
+      ShoppingCartItem.where(item_id: @product.id, owner_type: "ShoppingCart").destroy_all
       render nothing: true
     end
+
   end
 
   def index

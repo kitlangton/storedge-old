@@ -1,14 +1,11 @@
 class OrderMailer < ActionMailer::Base
   default from: "kit.langton@coloredge.com"
 
-  def new_order_email(user, order)
-    @user = user
+  def new_order_email(recipient, order)
     @order = order
-    @company = user.company
-    @csrs = User.where(company: @company, csr:true)
-    @csrs.each do |csr|
-      mail(to: csr.email, subject: "New Order Placed for #{@company.name}")
-    end
+    @user = @order.user
+    @company = @user.company
+    mail(to: recipient.email, subject: "New Order Placed for #{@company.name}")
   end
 
   def order_status_email(order)

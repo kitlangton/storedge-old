@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211191753) do
+ActiveRecord::Schema.define(version: 20150626173750) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141211191753) do
     t.integer  "company_id"
     t.string   "product_image"
     t.integer  "folder_id"
+    t.boolean  "removed",                                default: false
   end
 
   add_index "products", ["company_id"], name: "index_products_on_company_id"

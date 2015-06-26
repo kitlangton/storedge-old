@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :shopping_cart_item do
-    quantity 3
+    quantity 1
   end
 end

@@ -25,7 +25,7 @@ class CompaniesController < ApplicationController
     add_breadcrumb "Companies", root_path if current_user.try(:admin?)
     @company = Company.find(params[:id])
     @folders = @company.folders.roots
-    @products = @company.products.where(folder:nil).page params[:page]
+    @products = @company.products.published.where(folder:nil).page params[:page]
 
     add_breadcrumb @company.name, company_path(@company)
   end

@@ -22,7 +22,6 @@ feature "Admin manages companies" do
     company = create(:company)
     visit root_path
     click_link "Delete"
-    accept_dialog
     wait_for_ajax
     expect(page).not_to have_content company.name
   end

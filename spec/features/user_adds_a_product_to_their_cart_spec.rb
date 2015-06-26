@@ -9,7 +9,7 @@ feature "User adds a product to their cart" do
   scenario "They see it in their cart", js: true do
     login(user)
     visit root_path
-    click_link folder.name
+    find(".folder-btn").trigger('click')
 
     click_button "Add To Cart"
     fill_in "quantity", with: "5"

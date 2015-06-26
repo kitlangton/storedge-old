@@ -34,7 +34,6 @@ feature "Admin can manage all products" do
 
   scenario "deleting products", js: true do
     click_link "Delete"
-    accept_dialog
     expect(page).not_to have_content product.name
   end
 
