@@ -32,11 +32,13 @@ feature "Admin can manage all users" do
   end
 
   scenario "deleting users", js: true do
+    sleep(1)
     click_link "Delete"
     expect(page).not_to have_content user.email
   end
 
   scenario "editing users", js: true do
+    sleep(1)
     first(:link, "Edit").click
     fill_in "Email", with: "chub.dobs@coloredge.com"
     fill_in "First name", with: "Chubby"

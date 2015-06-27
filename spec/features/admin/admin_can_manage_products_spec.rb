@@ -33,11 +33,13 @@ feature "Admin can manage all products" do
   end
 
   scenario "deleting products", js: true do
+    sleep(1)
     click_link "Delete"
     expect(page).not_to have_content product.name
   end
 
   scenario "editing products", js: true do
+    sleep(1)
     click_link "Edit"
     fill_in "Name", with: "Chubby Dobby"
     fill_in "Price", with: "55.60"

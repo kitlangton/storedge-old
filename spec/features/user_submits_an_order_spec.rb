@@ -12,6 +12,7 @@ feature "User submits an order spec" do
 
   scenario "A user submits their cart", js: true do
       visit root_path
+      sleep(1)
       click_button "Add To Cart"
       fill_in "Quantity", with: "30"
       click_button "Submit"

@@ -12,7 +12,6 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      puts params
       if @product.folder
         redirect_to company_folder_path(@company,@product.folder)
       else

@@ -3,7 +3,7 @@ require 'rails_helper'
 feature "Users only sees their company's products" do
 
   let(:company) { create(:company) }
-  let(:other_company) { create(:company) }
+  let(:other_company) { create(:company, name: "Other Co.") }
   let(:user) { create(:user, company: company) }
   let!(:product) { create(:product, company: company) }
 
@@ -22,6 +22,11 @@ feature "Users only sees their company's products" do
       visit root_path
 
       expect(page).not_to have_content product.name
+    end
+
+    it "can't go to other companies' pages" do
+      visit company_path other_company
+      expect(page).not_to have_content "Other Co."
     end
   end
 end
