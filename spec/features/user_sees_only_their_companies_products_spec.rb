@@ -29,4 +29,13 @@ feature "Users only sees their company's products" do
       expect(page).not_to have_content "Other Co."
     end
   end
+
+  describe "pagination" do
+    it "should paginate the folder" do
+      25.times { create(:product, company: company)}
+      visit root_path
+
+      expect(page).to have_selector ".pagination"
+    end
+  end
 end

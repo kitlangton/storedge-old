@@ -16,4 +16,14 @@ feature 'User can view their orders' do
     expect(page).to have_content order.id
   end
 
+  context "pagination" do
+    it "paginates orders" do
+      30.times { create(:order, user: user)}
+      login(user)
+      visit root_path
+      click_link "My Orders"
+      expect(page).to have_selector ".pagination"
+    end
+  end
+
 end

@@ -5,6 +5,7 @@ feature "Admin manages companies" do
 
   before do
     login(admin)
+    sleep(2)
     click_link "Admin"
     click_link "Companies"
   end

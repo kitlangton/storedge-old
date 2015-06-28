@@ -44,10 +44,13 @@ gem 'jquery-ui-rails'
 gem 'friendly_id', '~> 5.0.0'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 group :development, :test do
   gem 'timecop'
-  gem 'binding_of_caller'
-  gem 'better_errors'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'factory_girl_rails'
@@ -58,6 +61,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara', '~> 2.4.4'
+  gem 'selenium-webdriver'
 end
 
 group :production do
@@ -66,5 +70,6 @@ group :production do
 end
 
 group :test do
+  gem 'email_spec'
   gem 'poltergeist'
 end
