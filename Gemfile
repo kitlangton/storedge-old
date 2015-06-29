@@ -15,7 +15,7 @@ gem 'compass-rails'
 
 gem 'devise', '~> 3.4.0'
 gem 'devise_invitable', '~> 1.3.6'
-gem 'activeadmin', github: 'activeadmin'
+# gem 'activeadmin', github: 'activeadmin'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
@@ -61,7 +61,6 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara', '~> 2.4.4'
-  gem 'selenium-webdriver'
 end
 
 group :production do

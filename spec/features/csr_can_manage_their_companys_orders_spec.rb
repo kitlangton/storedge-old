@@ -16,4 +16,14 @@ feature 'CSR manages orders' do
     expect(page).to have_content order.id
   end
 
+  scenario "the CSR can change the status of an order", js:true do
+    login(csr)
+    visit root_path
+    click_link "Manage Orders"
+
+    click_link "##{order.id}"
+    select "Shipped", from: "order_status"
+    click_button "Update Status"
+    expect(page).to have_content "status has been changed successfully"
+  end
 end

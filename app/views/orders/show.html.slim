@@ -16,7 +16,7 @@
             td
               = content_tag :span, line_item.item.name,  href: line_item.item.product_image_url, data: { colorbox: true, title: line_item.item.name }, class: "cart-item"
             td.text-right
-              = best_in_place line_item, :quantity, class: "inline-form", min: 0
+              = line_item.quantity
             td.text-right
               = number_to_currency(line_item.price)
             td.text-right.item-subtotal-cart
