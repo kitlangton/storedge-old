@@ -25,7 +25,7 @@ nav.navbar.navbar-default role="navigation"
                   = link_to "Products", admin_products_path
                 li
                   = link_to "Companies", companies_path
-        - if current_user && current_user.csr?
+        - if can? :update, Order
           li
             = link_to "Manage Orders", admin_orders_path
       ul.nav.navbar-nav.navbar-right

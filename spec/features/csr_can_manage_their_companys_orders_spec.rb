@@ -18,6 +18,7 @@ feature 'CSR manages orders' do
 
   scenario "the CSR can change the status of an order", js:true do
     login(csr)
+    save_screenshot("./manageorders.png")
     visit root_path
     click_link "Manage Orders"
 

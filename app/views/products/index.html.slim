@@ -1,0 +1,21 @@
+.container
+  .row
+    .col-sm-12
+      ol.breadcrumb
+        = render_breadcrumbs :tag => :li, separator: " "
+
+= render 'layouts/search_bar'
+
+.container
+  .products.row
+    = render @products
+
+  - unless @products.size > 0
+    .col-sm-12
+      .alert.alert-warning
+        | No products found matching: 
+        strong =@query
+
+.center-block.text-center.fade-in
+  = paginate @products, :theme => 'twitter-bootstrap-3'
+

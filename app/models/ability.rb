@@ -7,7 +7,11 @@ class Ability
       if user.admin?
         can :manage, :all
       else
+        if user.csr?
+          can :manage, Order, company_id: user.company.id
+        end
         can :read, Company, id: user.company.id
+        can :read, Product, company_id: user.company.id
       end
     #
     # The first argument to `can` is the action you are giving the user

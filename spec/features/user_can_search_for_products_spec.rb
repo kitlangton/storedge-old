@@ -15,4 +15,17 @@ feature "User can search for products" do
 
     expect(page).to have_content product.name
   end
+
+  scenario "user can't search for another company's product", js: true do
+    user = create(:user)
+    product = create(:product)
+
+    login(user)
+    visit root_path
+
+    fill_in "product-search-field", with: product.name
+    find("#product-search-field").native.send_key(:Enter)
+
+    expect(page).to have_content "No products found matching"
+  end
 end

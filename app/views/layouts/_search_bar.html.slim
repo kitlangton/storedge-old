@@ -1,6 +1,7 @@
 .col-sm-12
   .col-sm-6.col-sm-offset-3#search-bar
-    .input-group
-      input.form-control#product-search-field placeholder="Search for a product..."
-      span.input-group-btn
-        button.btn.btn-default Go
+    =form_tag products_path, method: :get do
+      .input-group
+        =text_field_tag :search, params[:search], class: "form-control", id: "product-search-field", placeholder: "Search for a product..."
+        span.input-group-btn
+          button.btn.btn-default Go

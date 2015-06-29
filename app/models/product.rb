@@ -11,4 +11,8 @@ class Product < ActiveRecord::Base
     self[:removed] = true
     save
   end
+
+  def self.search(query)
+    where("name like ?", "%#{query}%")
+  end
 end

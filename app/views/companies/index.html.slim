@@ -1,9 +1,13 @@
-h1.text-center Companies
+h1.text-center All Companies
 br
+
+= render 'layouts/search_bar'
+
 .controls.text-center
   = link_to new_company_path do
     button.btn.btn-primary#new-company-button
       span.glyphicon-plus.glyphicon
+
 
 .container
   .companies.row

@@ -46,7 +46,13 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.page params[:page]
+    @query = params[:search]
+    if current_user.admin?
+      add_breadcrumb "Companies" , companies_path
+    else
+      add_breadcrumb current_user.company.name, company_path(current_user.company)
+    end
+    @products = Product.accessible_by(current_ability).search(params[:search]).page(params[:page])
   end
 
   private
