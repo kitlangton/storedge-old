@@ -4,6 +4,8 @@
       ol.breadcrumb
         = render_breadcrumbs :tag => :li, separator: " "
 
+= render 'layouts/search_bar'
+
 - if current_user.admin?
   .text-center
     .controls.text-center.btn-group.btn-group-center
@@ -11,6 +13,7 @@
         strong  New Folder
       = link_to new_company_product_path(@company), class: "btn btn-primary", id: "new-product-button", type: "button" do
         strong New Product
+
 
 .container
   .products.row
