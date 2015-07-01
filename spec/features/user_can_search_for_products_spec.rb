@@ -17,8 +17,10 @@ feature "User can search for products" do
   end
 
   scenario "user can't search for another company's product", js: true do
-    user = create(:user)
-    product = create(:product)
+    user_company = create(:company)
+    other_company = create(:company)
+    user = create(:user, company: user_company)
+    product = create(:product, company: other_company)
 
     login(user)
     visit root_path
